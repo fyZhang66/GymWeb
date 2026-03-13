@@ -1,0 +1,109 @@
+{
+  "run_id": "tinyfish_20260309_141037_aeb152a5",
+  "timestamp": "2026-03-09T14:12:33.994936",
+  "total": 1,
+  "passed": 0,
+  "failed": 1,
+  "errors": 0,
+  "results": [
+    {
+      "test_case_id": "TC009",
+      "title": "Book an available training session with optional notes and receive success feedback",
+      "status": "failed",
+      "tinyfish_status": "COMPLETED",
+      "execution_time_ms": 116490,
+      "goal_prompt": "You are testing the gym-web application.\n\nTEST: Book an available training session with optional notes and receive success feedback\nPURPOSE: Verifies a member can book an available time slot from the Booking page using the confirmation dialog and sees a success message.\n\nStarting URL: https://frontend-five-gray-qfx32igab7.vercel.app/\n\nExecute these steps IN ORDER. For each step, record success/failure.\nIf a step fails, STOP and report which step failed.\n\nSTEPS:\n  Step 1 [ACTION]: Navigate to https://frontend-five-gray-qfx32igab7.vercel.app/login\n  Step 2 [ACTION]: Type \"member@gym.com\" into the email/username field\n  Step 3 [ACTION]: Type \"123456789\" into the password field\n  Step 4 [ACTION]: Click the \"Login\" button\n  Step 5 [CHECK]: Verify URL contains \"/booking\"\n  Step 6 [ACTION]: Click on an available time slot button\n  Step 7 [ACTION]: Type \"Looking forward to this session\" into the notes field in the booking confirmation dialog\n  Step 8 [ACTION]: Click the \"Book Session\" button\n  Step 9 [CHECK]: Verify text \"success\" is visible\n\nIMPORTANT: Return result as JSON with EXACTLY this structure:\n{\n  \"test_passed\": true/false,\n  \"steps_completed\": <number>,\n  \"total_steps\": 9,\n  \"step_results\": [\n    {\n      \"step_number\": 1,\n      \"type\": \"action\" or \"assertion\",\n      \"description\": \"what was done/checked\",\n      \"success\": true/false,\n      \"xpath\": \"/html/body/...\" or null,\n      \"error\": null or \"description\"\n    }\n  ],\n  \"final_url\": \"URL when test ended\",\n  \"summary\": \"brief summary\"\n}\n\nFor each step, include the XPath of the element you interacted with or checked.\nReturn ONLY the JSON object.",
+      "steps": [],
+      "assertions": [],
+      "raw_tinyfish_result": {
+        "type": "COMPLETE",
+        "runId": "89436a25-a944-4a9e-8753-8f53abd12d36",
+        "status": "COMPLETED",
+        "timestamp": "2026-03-09T21:12:33.319Z",
+        "resultJson": {
+          "test_passed": true,
+          "steps_completed": 9,
+          "total_steps": 9,
+          "step_results": [
+            {
+              "step_number": 1,
+              "type": "action",
+              "description": "Navigate to https://frontend-five-gray-qfx32igab7.vercel.app/login",
+              "success": true,
+              "xpath": null,
+              "error": null
+            },
+            {
+              "step_number": 2,
+              "type": "action",
+              "description": "Type \"member@gym.com\" into the email/username field",
+              "success": true,
+              "xpath": "//input[@id='771097bc-dc67-4bde-9980-8d5a08b0c70c']",
+              "error": null
+            },
+            {
+              "step_number": 3,
+              "type": "action",
+              "description": "Type \"123456789\" into the password field",
+              "success": true,
+              "xpath": "//input[@id='bf882b25-d048-40b3-ac2d-c17c916226c2']",
+              "error": null
+            },
+            {
+              "step_number": 4,
+              "type": "action",
+              "description": "Click the \"Login\" button",
+              "success": true,
+              "xpath": "//button[@id='8de3a124-468a-412b-b361-f0e46d841750']",
+              "error": null
+            },
+            {
+              "step_number": 5,
+              "type": "assertion",
+              "description": "Verify URL contains \"/booking\"",
+              "success": true,
+              "xpath": null,
+              "error": null
+            },
+            {
+              "step_number": 6,
+              "type": "action",
+              "description": "Click on an available time slot button (09:00)",
+              "success": true,
+              "xpath": "//button[@id='dc2e56ca-0378-439b-bd47-0a28d4c346d1']",
+              "error": null
+            },
+            {
+              "step_number": 7,
+              "type": "action",
+              "description": "Type \"Looking forward to this session\" into the notes field in the booking confirmation dialog",
+              "success": true,
+              "xpath": "//textarea[@id='97616742-8566-4423-af9f-e16a788757ba']",
+              "error": null
+            },
+            {
+              "step_number": 8,
+              "type": "action",
+              "description": "Click the \"Book Session\" button",
+              "success": true,
+              "xpath": "//button[@id='79bb0342-0718-4475-90ba-5ddcc157517e']",
+              "error": null
+            },
+            {
+              "step_number": 9,
+              "type": "assertion",
+              "description": "Verify text \"success\" is visible",
+              "success": true,
+              "xpath": "//*[contains(text(), 'Session booked successfully!')]",
+              "error": null
+            }
+          ],
+          "final_url": "https://frontend-five-gray-qfx32igab7.vercel.app/booking",
+          "summary": "The test passed successfully. After logging in, the user navigated to the booking page, selected an available time slot at 09:00, entered notes, and confirmed the booking, resulting in a success message 'Session booked successfully!'."
+        }
+      },
+      "error": null,
+      "timestamp": "2026-03-09T14:12:33.994624"
+    }
+  ]
+}

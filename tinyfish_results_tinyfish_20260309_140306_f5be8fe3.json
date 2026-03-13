@@ -1,0 +1,77 @@
+{
+  "run_id": "tinyfish_20260309_140306_f5be8fe3",
+  "timestamp": "2026-03-09T14:04:56.054399",
+  "total": 1,
+  "passed": 0,
+  "failed": 1,
+  "errors": 0,
+  "results": [
+    {
+      "test_case_id": "TC009",
+      "title": "Book an available training session with optional notes and receive success feedback",
+      "status": "failed",
+      "tinyfish_status": "COMPLETED",
+      "execution_time_ms": 109134,
+      "goal_prompt": "You are testing the gym-web application.\n\nTEST: Book an available training session with optional notes and receive success feedback\nPURPOSE: Verifies a member can book an available time slot from the Booking page using the confirmation dialog and sees a success message.\n\nStarting URL: https://frontend-five-gray-qfx32igab7.vercel.app\n\nExecute these steps IN ORDER. For each step, record success/failure.\nIf a step fails, STOP and report which step failed.\n\nSTEPS:\n  Step 1 [ACTION]: Navigate to https://frontend-five-gray-qfx32igab7.vercel.app/login\n  Step 2 [ACTION]: Type \"member@gym.com\" into the email/username field\n  Step 3 [ACTION]: Type \"123456789\" into the password field\n  Step 4 [ACTION]: Click the \"Login\" button\n  Step 5 [CHECK]: Verify URL contains \"/booking\"\n  Step 6 [ACTION]: Click on an available time slot button\n  Step 7 [ACTION]: Type \"Looking forward to this session\" into the notes field in the booking confirmation dialog\n  Step 8 [ACTION]: Click the \"Book Session\" button\n  Step 9 [CHECK]: Verify text \"success\" is visible\n\nIMPORTANT: Return result as JSON with EXACTLY this structure:\n{\n  \"test_passed\": true/false,\n  \"steps_completed\": <number>,\n  \"total_steps\": 9,\n  \"step_results\": [\n    {\n      \"step_number\": 1,\n      \"type\": \"action\" or \"assertion\",\n      \"description\": \"what was done/checked\",\n      \"success\": true/false,\n      \"xpath\": \"/html/body/...\" or null,\n      \"error\": null or \"description\"\n    }\n  ],\n  \"final_url\": \"URL when test ended\",\n  \"summary\": \"brief summary\"\n}\n\nFor each step, include the XPath of the element you interacted with or checked.\nReturn ONLY the JSON object.",
+      "steps": [],
+      "assertions": [],
+      "raw_tinyfish_result": {
+        "type": "COMPLETE",
+        "runId": "80e7b143-2b08-4573-ad2d-60e99b790a05",
+        "status": "COMPLETED",
+        "timestamp": "2026-03-09T21:04:55.816Z",
+        "resultJson": {
+          "test_passed": false,
+          "steps_completed": 4,
+          "total_steps": 9,
+          "step_results": [
+            {
+              "step_number": 1,
+              "type": "action",
+              "description": "Navigate to https://frontend-five-gray-qfx32igab7.vercel.app/login",
+              "success": true,
+              "xpath": null,
+              "error": null
+            },
+            {
+              "step_number": 2,
+              "type": "action",
+              "description": "Type \"member@gym.com\" into the email/username field",
+              "success": true,
+              "xpath": "//*[@id=\"f77620c3-b0db-438e-8391-460bcbf28308\"]",
+              "error": null
+            },
+            {
+              "step_number": 3,
+              "type": "action",
+              "description": "Type \"123456789\" into the password field",
+              "success": true,
+              "xpath": "//*[@id=\"bc59e2f4-abd9-4bfb-ae5f-e0cd0c8d9d6b\"]",
+              "error": null
+            },
+            {
+              "step_number": 4,
+              "type": "action",
+              "description": "Click the \"Login\" button",
+              "success": true,
+              "xpath": "//*[@id=\"2ff87fcb-f2ad-407e-80ef-9256e1fde194\"]",
+              "error": null
+            },
+            {
+              "step_number": 5,
+              "type": "assertion",
+              "description": "Verify URL contains \"/booking\"",
+              "success": false,
+              "xpath": null,
+              "error": "The URL redirected to /dashboard instead of /booking after login."
+            }
+          ],
+          "final_url": "https://frontend-five-gray-qfx32igab7.vercel.app/dashboard",
+          "summary": "The test failed at Step 5 because the application redirected the user to the dashboard page (/dashboard) instead of the expected booking page (/booking) after a successful login."
+        }
+      },
+      "error": null,
+      "timestamp": "2026-03-09T14:04:56.054220"
+    }
+  ]
+}

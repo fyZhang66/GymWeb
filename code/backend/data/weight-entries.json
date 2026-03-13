@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "memberId": "member1",
+    "date": "2025-08-02",
+    "weight": 75.5,
+    "notes": "Starting weight"
+  },
+  {
+    "id": "2",
+    "memberId": "member1",
+    "date": "2025-08-09",
+    "weight": 75.2,
+    "notes": "Good progress"
+  },
+  {
+    "id": "3",
+    "memberId": "member1",
+    "date": "2025-08-16",
+    "weight": 74.8,
+    "notes": "Continuing to lose weight"
+  }
+]

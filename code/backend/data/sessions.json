@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "date": "2025-08-17",
+    "time": "10:00",
+    "memberId": "member1",
+    "memberName": "John Member",
+    "coachId": "coach1",
+    "status": "booked",
+    "notes": "Upper body strength training"
+  },
+  {
+    "id": "2",
+    "date": "2025-08-19",
+    "time": "14:00",
+    "memberId": "member1",
+    "memberName": "John Member",
+    "coachId": "coach1",
+    "status": "booked",
+    "notes": "Cardio and flexibility"
+  }
+]

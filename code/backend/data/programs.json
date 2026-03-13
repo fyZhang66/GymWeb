@@ -1,0 +1,60 @@
+[
+  {
+    "id": "1",
+    "memberId": "member1",
+    "memberName": "John Member",
+    "title": "Beginner Strength Building Program",
+    "nutrition": [
+      "Breakfast: Oatmeal with berries and protein powder",
+      "Lunch: Grilled chicken with quinoa and vegetables",
+      "Dinner: Salmon with sweet potato and broccoli",
+      "Snacks: Greek yogurt with nuts, protein shake"
+    ],
+    "guidance": "Focus on proper form over heavy weights. Progressive overload is key. Get adequate rest between sessions.",
+    "weeklyPlan": [
+      {
+        "day": "Monday",
+        "exercises": [
+          "Squats 3x8",
+          "Push-ups 3x10",
+          "Plank 3x30s"
+        ]
+      },
+      {
+        "day": "Wednesday",
+        "exercises": [
+          "Deadlifts 3x6",
+          "Pull-ups 3x5",
+          "Lunges 3x10 each leg"
+        ]
+      },
+      {
+        "day": "Friday",
+        "exercises": [
+          "Bench press 3x8",
+          "Rows 3x10",
+          "Shoulder press 3x8"
+        ]
+      }
+    ],
+    "dailyTasks": [
+      {
+        "task": "Drink 8 glasses of water",
+        "completed": false
+      },
+      {
+        "task": "Get 7-8 hours of sleep",
+        "completed": false
+      },
+      {
+        "task": "Take daily vitamins",
+        "completed": false
+      },
+      {
+        "task": "10-minute morning stretch",
+        "completed": false
+      }
+    ],
+    "createdDate": "2025-08-09"
+  }
+]

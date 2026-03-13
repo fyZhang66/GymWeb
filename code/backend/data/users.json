@@ -1,0 +1,16 @@
+[
+  {
+    "id": "member1",
+    "email": "member@gym.com",
+    "password": "123456789",
+    "name": "John Member",
+    "role": "member"
+  },
+  {
+    "id": "coach1",
+    "email": "coach@gym.com",
+    "password": "123456789",
+    "name": "Coach Sarah",
+    "role": "coach"
+  }
+]

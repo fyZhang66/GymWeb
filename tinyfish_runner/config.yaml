@@ -1,0 +1,14 @@
+tinyfish:
+  api_key: "sk-tinyfish-9Fh8lNz7eBg1C6Db4Vng51jVwL8Pfoo6"
+
+gymweb:
+  base_url: "https://frontend-five-gray-qfx32igab7.vercel.app/"
+  login_user: "member@gym.com"
+  login_password: "123456789"
+
+execution:
+  mode: "sse"                # sse | async | sync
+  concurrency: 3
+  timeout: 300
+  retry_max: 2
+  browser_profile: "stealth"
