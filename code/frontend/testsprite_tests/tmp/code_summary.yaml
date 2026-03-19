@@ -1,0 +1,262 @@
+version: "2"
+type: frontend
+tech_stack:
+  - React 18
+  - TypeScript
+  - Material-UI (MUI)
+  - React Router DOM
+  - Axios
+  - Recharts
+  - Day.js
+  - Vite
+
+routes:
+  - path: /login
+    file: src/pages/Login.tsx
+    auth_required: false
+    description: User login page with email and password
+
+  - path: /dashboard
+    file: src/pages/MemberDashboard.tsx
+    auth_required: true
+    description: Member dashboard showing sessions, programs, and weight progress
+    allowed_roles:
+      - member
+
+  - path: /booking
+    file: src/pages/BookingSessions.tsx
+    auth_required: true
+    description: Book training sessions with available coaches
+    allowed_roles:
+      - member
+
+  - path: /programs
+    file: src/pages/TrainingPrograms.tsx
+    auth_required: true
+    description: View and manage training programs
+    allowed_roles:
+      - member
+
+  - path: /weight-tracking
+    file: src/pages/WeightTracking.tsx
+    auth_required: true
+    description: Track and visualize weight progress
+    allowed_roles:
+      - member
+
+  - path: /coach-dashboard
+    file: src/pages/CoachDashboard.tsx
+    auth_required: true
+    description: Coach dashboard showing member sessions and progress
+    allowed_roles:
+      - coach
+
+  - path: /program-management
+    file: src/pages/ProgramManagement.tsx
+    auth_required: true
+    description: Create and manage training programs for members
+    allowed_roles:
+      - coach
+
+  - path: /manage-availability
+    file: src/pages/ManageAvailability.tsx
+    auth_required: true
+    description: Set availability slots for coaching sessions
+    allowed_roles:
+      - coach
+
+features:
+  - name: User Login
+    description: Login with email and password credentials for member and coach roles
+    files:
+      - src/pages/Login.tsx
+      - src/contexts/AuthContext.tsx
+      - src/services/api.ts
+    entry_route: /login
+    user_interactions:
+      - Fill email input field
+      - Fill password input field
+      - Click Login button
+      - See error message on invalid credentials
+      - Redirect to dashboard on successful login
+    api_calls:
+      - method: POST
+        endpoint: /api/auth/login
+        payload:
+          email: string
+          password: string
+    auth_required: false
+
+  - name: Member Dashboard
+    description: Overview of upcoming sessions, training progress, and daily tasks
+    files:
+      - src/pages/MemberDashboard.tsx
+      - src/contexts/DataContext.tsx
+    entry_route: /dashboard
+    user_interactions:
+      - View upcoming sessions
+      - View training program progress
+      - View weight tracking stats
+      - View daily tasks and goals
+      - Navigate to other sections
+    api_calls:
+      - method: GET
+        endpoint: /api/sessions
+      - method: GET
+        endpoint: /api/programs
+      - method: GET
+        endpoint: /api/weight-entries
+    auth_required: true
+
+  - name: Session Booking
+    description: Book training sessions with available time slots
+    files:
+      - src/pages/BookingSessions.tsx
+      - src/contexts/DataContext.tsx
+    entry_route: /booking
+    user_interactions:
+      - View available training slots
+      - Select a time slot
+      - Enter booking notes
+      - Confirm booking
+      - See booking confirmation
+      - View booked sessions
+    api_calls:
+      - method: GET
+        endpoint: /api/available-slots
+      - method: POST
+        endpoint: /api/book-session
+        payload:
+          slotId: string
+          memberId: string
+          memberName: string
+    auth_required: true
+
+  - name: Training Programs
+    description: View and manage personalized training plans with exercises and nutrition
+    files:
+      - src/pages/TrainingPrograms.tsx
+      - src/contexts/DataContext.tsx
+    entry_route: /programs
+    user_interactions:
+      - View training program details
+      - View fitness center exercises
+      - View nutrition guide
+      - View daily tasks and assignments
+      - Mark tasks as completed
+    api_calls:
+      - method: GET
+        endpoint: /api/programs
+      - method: PUT
+        endpoint: /api/programs/:id
+    auth_required: true
+
+  - name: Weight Tracking
+    description: Record and visualize weight progress over time with charts
+    files:
+      - src/pages/WeightTracking.tsx
+      - src/contexts/DataContext.tsx
+    entry_route: /weight-tracking
+    user_interactions:
+      - Enter current weight
+      - Select date for entry
+      - Submit weight entry
+      - View weight progress chart
+      - View weight statistics
+    api_calls:
+      - method: GET
+        endpoint: /api/weight-entries
+      - method: POST
+        endpoint: /api/weight-entries
+        payload:
+          memberId: string
+          weight: number
+          date: string
+    auth_required: true
+
+  - name: Coach Dashboard
+    description: Manage member bookings, view progress overview, and session tracking
+    files:
+      - src/pages/CoachDashboard.tsx
+      - src/contexts/DataContext.tsx
+    entry_route: /coach-dashboard
+    user_interactions:
+      - View today's sessions schedule
+      - View all member information
+      - View member progress stats
+      - View member weight tracking
+      - Navigate to program management
+    api_calls:
+      - method: GET
+        endpoint: /api/sessions
+      - method: GET
+        endpoint: /api/programs
+      - method: GET
+        endpoint: /api/weight-entries
+    auth_required: true
+
+  - name: Program Management
+    description: Create and edit training programs for members with exercises and nutrition
+    files:
+      - src/pages/ProgramManagement.tsx
+      - src/contexts/DataContext.tsx
+    entry_route: /program-management
+    user_interactions:
+      - Create new training program
+      - Fill program details (name, duration)
+      - Add exercises to program
+      - Add nutrition guides
+      - Add daily tasks
+      - Edit existing programs
+      - Delete programs
+      - Assign programs to members
+    api_calls:
+      - method: GET
+        endpoint: /api/programs
+      - method: POST
+        endpoint: /api/programs
+        payload:
+          memberId: string
+          name: string
+          startDate: string
+          endDate: string
+          exercises: object[]
+          nutrition: object[]
+      - method: PUT
+        endpoint: /api/programs/:id
+    auth_required: true
+
+  - name: Manage Availability
+    description: Set and manage available time slots for coaching sessions
+    files:
+      - src/pages/ManageAvailability.tsx
+      - src/contexts/DataContext.tsx
+    entry_route: /manage-availability
+    user_interactions:
+      - View existing availability slots
+      - Add new time slot
+      - Fill date and time
+      - Fill slot capacity
+      - Delete availability slot
+      - See all upcoming availability
+    api_calls:
+      - method: GET
+        endpoint: /api/available-slots
+      - method: POST
+        endpoint: /api/available-slots
+        payload:
+          date: string
+          startTime: string
+          endTime: string
+          capacity: number
+      - method: DELETE
+        endpoint: /api/available-slots/:id
+    auth_required: true
+
+known_limitations:
+  - issue: Local JSON-based backend may reset data on server restart
+    location: backend/index.js
+    impact: Test data persistence may be limited during testing
+  - issue: CORS configured for localhost only
+    location: backend/index.js
+    impact: Frontend must be running on same machine or localhost

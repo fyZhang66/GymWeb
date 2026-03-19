@@ -1,0 +1,18 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:4173",
+  "executionArgs": {
+    "projectName": "gym-web",
+    "projectPath": "/Users/zhangfangyuan/TestSprite/gym-web/code/frontend",
+    "testIds": [],
+    "additionalInstruction": "Focus on testing core functionalities: login flow, member dashboard, session booking, and coach availability management. Ensure all tests verify API integration and UI interactions.",
+    "serverMode": "development",
+    "envs": {
+      "API_KEY": "sk-user-qv4E3iYNh11Mt6wCF6ij_0B-DjGpLpdWUW2nG-O3X_YhOesAKqdn-nh9UlNOcrdAJD4-3nuz6ZghYzCy1gq-fCsk0VJ8I5RxtuAvPvKjgLU7qkfZm2SYAdg8i6wU-W_xDlY"
+    }
+  },
+  "serverPort": 51882,
+  "proxy": "http://7ba5e2b0-2fc2-430d-9431-503b793d7e3e:h5HArq7KxgKP1xPDYPb2MjcN6pulbmv9@tun.testsprite.com:8080"
+}
