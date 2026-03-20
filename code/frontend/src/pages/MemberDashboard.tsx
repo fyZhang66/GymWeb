@@ -40,7 +40,7 @@ const MemberDashboard: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTime(dayjs());
-    }, 60000); // Update every minute
+    }, 200); // Update every minute
 
     return () => clearInterval(interval);
   }, []);
