@@ -97,7 +97,7 @@ const MemberDashboard: React.FC = () => {
     return weightEntries
       .filter(entry => entry.memberId === user?.id)
       .sort((a, b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf())
-      .slice(0, 3);
+      .slice(0, 5);
   }, [weightEntries, user?.id]);
 
   const completedTasksCount = memberProgram?.dailyTasks.filter(task => task.completed).length || 0;
