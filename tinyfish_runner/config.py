@@ -42,7 +42,7 @@ class AppConfig(BaseModel):
             self.gymweb.login_password = os.environ.get("GYMWEB_LOGIN_PASSWORD", "")
         return self
 
-# dddd
+
 def load_config(config_path: str | Path) -> AppConfig:
     """Load configuration from a YAML file with env var fallback."""
     config_path = Path(config_path)
