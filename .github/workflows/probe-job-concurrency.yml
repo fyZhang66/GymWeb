@@ -1,0 +1,12 @@
+name: probe-job-concurrency
+on: deployment_status
+jobs:
+  gate:
+    concurrency:
+      group: probe-job-${{ github.event.deployment.sha }}
+      cancel-in-progress: true
+    if: github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "state=${{ github.event.deployment_status.state }} sha=${{ github.event.deployment.sha }} env=${{ github.event.deployment.environment }} url=${{ github.event.deployment_status.environment_url }}"
+      - run: sleep 420
